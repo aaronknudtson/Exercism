@@ -1,0 +1,4 @@
+node_modules
+.ccls-cache
+tests.out.dSYM
+
