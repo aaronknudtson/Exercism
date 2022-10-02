@@ -2,34 +2,18 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef struct {
-  uint16_t a;
-  uint16_t b;
-} pair_t;
-
 triplets_t *triplets_with_sum(uint16_t sum) {
 
   triplet_t triplets[sum];
   uint16_t count = 0;
   for (uint16_t c = 1; c < sum; ++c) {
-    // declare pairs
-    pair_t pairs[c];
     for (uint16_t i = 1; i < c; ++i) {
-      if (i > sum - c - i) {
+      uint16_t a = i;
+      uint16_t b = sum - c - i;
+      if (a > b) {
         break;
       }
-      pairs[i] = (pair_t){ i, sum - c - i }; 
-      // printf("a: %d, b: %d, c: %d\n", pairs[i].a, pairs[i].b, c);
-    }    
-
-    for (uint16_t i = 1; i < c; ++i) {
-      uint16_t a = pairs[i].a; 
-      uint16_t b = pairs[i].b; 
-      if (a + b < c) {
-        continue;
-      } else if (a + b + c != sum) {
-        continue;
-      } else if (a*a + b*b != c*c) {
+      if (a*a + b*b != c*c) {
         continue;
       } 
 
@@ -47,12 +31,12 @@ triplets_t *triplets_with_sum(uint16_t sum) {
       }
     }
   }
+
   triplets_t *out = malloc(sizeof(count) + sizeof(triplet_t) * count); 
   out->count = count;
   for (uint16_t i = 0; i < count; ++i) {
     out->triplets[i] = triplets[i];
   }
-  // memcpy(out->triplets, triplets, sizeof(uint16_t) * count);
   return out;
 }
 
