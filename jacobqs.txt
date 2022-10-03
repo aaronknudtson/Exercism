@@ -1,5 +1,8 @@
 1. memcpy from c/list-ops/list-ops.c line 11 - is it fine to use, and is it more efficient?
+1b. go through mask in allergens
+1c. Way to fill array with default value without looping?
 2. Pattern I see: Declare type struct, create modifier functions library, initialize struct variable, pass struct variable as a pointer in order to be modified, return error status?
 3. What is LLVM?
 4. Give me a short rundown of gcc or compiler options?
 5. how significant is this "Rust in the linux kernel" (version 6.1 I think)?
+
