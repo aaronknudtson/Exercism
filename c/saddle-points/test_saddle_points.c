@@ -42,10 +42,7 @@ static void test_single_saddle_point(void)
    saddle_point_t expected_points[] = { { 2, 1 } };
    saddle_points_t *actual = saddle_points(3, 3, matrix);
    check_count(expected_count, actual->count);
-    printf("row: %d, col: %d", expected_points->row, expected_points->column);
-    printf("row: %d, col: %d", actual->points[0].row, actual->points[0].column);
    check_points(expected_count, expected_points, actual->points);
-  printf("\nhere\n");
    free_saddle_points(actual);
 }
 
@@ -65,6 +62,9 @@ static void test_lack_of_saddle_points_when_there_are_none(void)
 
    size_t expected_count = 0;
    saddle_points_t *actual = saddle_points(3, 3, matrix);
+    // printf("row: %d, col: %d", expected_points->row, expected_points->column);
+    // printf("row: %d, col: %d", actual->points[0].row, actual->points[0].column);
+    // printf("\nhere\n");
    check_count(expected_count, actual->count);
    free_saddle_points(actual);
 }
