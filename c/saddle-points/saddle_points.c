@@ -1,8 +1,10 @@
 #include "saddle_points.h"
 #include "generic-linked-list.h"
 #include <stdlib.h>
+#include <string.h>
 
 void free_saddle_points(saddle_points_t *points) {
+  free(points->points);
   free(points);
 }
 
@@ -50,10 +52,10 @@ saddle_points_t *saddle_points(uint8_t nrows, uint8_t ncols, uint8_t matrix[nrow
     }
     g_list_destroy(max_in_row);
   }
-  saddle_points_t *out = malloc(sizeof(pcount) + sizeof(saddle_point_t) * pcount);
+  saddle_points_t *out = malloc(sizeof(saddle_points_t));
   out->count = pcount;
-  for (uint8_t i = 0; i < pcount; ++i) {
-    out->points[i] = points[i];
-  }
+  out->points = malloc(sizeof(saddle_point_t) * pcount);
+  memcpy(out->points, points, sizeof(saddle_point_t) * pcount);
+
   return out;
 }

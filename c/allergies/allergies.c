@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 
-static allergen_t allergens[] = {
+// explain enums plz
+const allergen_t allergens[] = {
    ALLERGEN_EGGS,
    ALLERGEN_PEANUTS,
    ALLERGEN_SHELLFISH,
@@ -11,7 +12,7 @@ static allergen_t allergens[] = {
    ALLERGEN_CHOCOLATE,
    ALLERGEN_POLLEN,
    ALLERGEN_CATS,
-   ALLERGEN_COUNT,
+   ALLERGEN_COUNT, 
 };
 
 allergen_list_t get_allergens(uint16_t value) {

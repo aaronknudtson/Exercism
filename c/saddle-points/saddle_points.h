@@ -12,7 +12,7 @@ typedef struct {
 
 typedef struct {
   uint8_t count;
-  saddle_point_t points[];
+  saddle_point_t *points;
 } saddle_points_t;
 
 g_list_t* find_max(uint8_t ncols, uint8_t row[ncols]);
